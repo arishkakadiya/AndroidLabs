@@ -1,37 +1,19 @@
 package com.example.arish.androidlabs;
 
 import android.app.Activity;
-import android.content.Intent;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 
-
-public class StartActivity extends Activity {
-    protected static final String ACTIVITY_NAME = "StartActivity";
+public class LoginActivity extends Activity {
+    protected static final String ACTIVITY_NAME = "LoginActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start);
+        setContentView(R.layout.activity_login);
         Log.i(ACTIVITY_NAME,"In OnCreate()");
-        Button button = (Button) findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),ListItemsActivity.class);
-                startActivityForResult(intent,50);
-            }
-        });
 
-
-
-    }
-
-    protected void onActivityResult(int requestCode, int responseCode){
-        if(requestCode == 50){
-            Log.i(ACTIVITY_NAME, "Return to StartActivity.onActivityResult");
-        }
     }
     @Override
     protected void onResume(){

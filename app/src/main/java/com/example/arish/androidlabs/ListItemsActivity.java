@@ -6,32 +6,26 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
-
-public class StartActivity extends Activity {
-    protected static final String ACTIVITY_NAME = "StartActivity";
+public class ListItemsActivity extends Activity {
+    protected static final String ACTIVITY_NAME = "ListItemsActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start);
+        setContentView(R.layout.activity_list_items);
         Log.i(ACTIVITY_NAME,"In OnCreate()");
-        Button button = (Button) findViewById(R.id.button);
+        ImageButton button = (ImageButton) findViewById(R.id.imageButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),ListItemsActivity.class);
-                startActivityForResult(intent,50);
+                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                startActivity(intent);
+
+
             }
         });
 
-
-
-    }
-
-    protected void onActivityResult(int requestCode, int responseCode){
-        if(requestCode == 50){
-            Log.i(ACTIVITY_NAME, "Return to StartActivity.onActivityResult");
-        }
     }
     @Override
     protected void onResume(){
