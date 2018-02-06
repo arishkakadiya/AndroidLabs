@@ -21,7 +21,7 @@ public class ListItemsActivity extends Activity {
             public void onClick(View view) {
                 Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                 startActivity(intent);
-                
+
 
             }
         });
